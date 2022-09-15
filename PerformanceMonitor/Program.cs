@@ -29,15 +29,6 @@ public class PerformanceManager
         return string.Format("{0:0.00}", CPUCounter.NextValue());
     }
 
-    public static async Task SetInterval(Action action, TimeSpan timeout)
-    {
-        await Task.Delay(timeout).ConfigureAwait(false);
-
-        action();
-
-        SetInterval(action, timeout);
-    }
-
     static async Task Main()
     {
         var getCurrentCpuUsage = string.Empty;
@@ -47,10 +38,8 @@ public class PerformanceManager
             getCurrentCpuUsage = GetCurrentCpuUsage();
             getAvailableRAM = GetAvailableRAM();
             Console.WriteLine($"getCurrentCpuUsage: {getCurrentCpuUsage}, getAvailableRAM: {getAvailableRAM}");
-            //SetInterval(() => Console.WriteLine($"getCurrentCpuUsage: {getCurrentCpuUsage}, getAvailableRAM: {getAvailableRAM}"), TimeSpan.FromSeconds(5));
             await Task.Delay(5000);
         }
        
-        //Thread.Sleep(TimeSpan.FromMinutes(10));
     }
 }
