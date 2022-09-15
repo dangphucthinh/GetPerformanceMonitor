@@ -438,11 +438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Oscar\\Desktop\\PerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
+      "projectUniqueName": "C:\\Users\\Oscar\\Desktop\\myself\\GetPerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
       "projectName": "PerformanceMonitor",
-      "projectPath": "C:\\Users\\Oscar\\Desktop\\PerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
+      "projectPath": "C:\\Users\\Oscar\\Desktop\\myself\\GetPerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
       "packagesPath": "C:\\Users\\Oscar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Oscar\\Desktop\\PerformanceMonitor\\PerformanceMonitor\\obj\\",
+      "outputPath": "C:\\Users\\Oscar\\Desktop\\myself\\GetPerformanceMonitor\\PerformanceMonitor\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

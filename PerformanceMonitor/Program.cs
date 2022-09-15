@@ -5,57 +5,52 @@ using System.Xml.Linq;
 
 public class PerformanceManager
 {
-    static PerformanceCounter cpuCounter;
-    static PerformanceCounter ramCounter;
-    private static System.Timers.Timer syncTimer;
-
-    PerformanceManager()
+    public static string GetCurrentCpuUsage()
     {
-        ramCounter = new PerformanceCounter(categoryName:"Memory", counterName:"Available MBytes");
+        PerformanceCounter cpuCounter;
         cpuCounter = new PerformanceCounter(categoryName: "Processor", counterName: "% Processor Time", instanceName: "_Total");
-    }
-
-    public string GetCurrentCpuUsage()
-    {
         return cpuCounter.NextValue() + "%";
     }
 
-    public string GetAvailableRAM()
+    public static string GetAvailableRAM()
     {
+        PerformanceCounter ramCounter;
+        ramCounter = new PerformanceCounter(categoryName: "Memory", counterName: "Available MBytes");
         return ramCounter.NextValue() + "MB";
     }
 
 
-    public string GetPerformanceCounter(string category, string counter, string instance = "")
+    public static string GetPerformanceCounter(string category, string counter, string instance = "")
     {
         PerformanceCounter CPUCounter;
         CPUCounter = new PerformanceCounter(categoryName: category, counterName: counter, instanceName: instance);
         CPUCounter.NextValue();
-        System.Threading.Thread.Sleep(1000);
-        return String.Format("{0:0.00}", CPUCounter.NextValue());
+        Thread.Sleep(1000);
+        return string.Format("{0:0.00}", CPUCounter.NextValue());
     }
 
-    private void HandleCheckShedule()
+    public static async Task SetInterval(Action action, TimeSpan timeout)
     {
-        //Create a timer with a 120s interval
-        var syncTimer = new System.Timers.Timer(120000);
+        await Task.Delay(timeout).ConfigureAwait(false);
 
-        // Hook up the Elapsed event for the timer. 
-        syncTimer.Elapsed += SynchronizeSchedule;
-        syncTimer.AutoReset = true;
-        syncTimer.Enabled = true;
+        action();
+
+        SetInterval(action, timeout);
     }
 
-    private void SynchronizeSchedule(Object source, ElapsedEventArgs e)
+    static async Task Main()
     {
-        
-        
-    }
-
-
-
-    static void Main()
-    {
-        HandleGetPerformanceMonitor();
+        var getCurrentCpuUsage = string.Empty;
+        var getAvailableRAM = string.Empty;
+        while (true)
+        {
+            getCurrentCpuUsage = GetCurrentCpuUsage();
+            getAvailableRAM = GetAvailableRAM();
+            Console.WriteLine($"getCurrentCpuUsage: {getCurrentCpuUsage}, getAvailableRAM: {getAvailableRAM}");
+            //SetInterval(() => Console.WriteLine($"getCurrentCpuUsage: {getCurrentCpuUsage}, getAvailableRAM: {getAvailableRAM}"), TimeSpan.FromSeconds(5));
+            await Task.Delay(5000);
+        }
+       
+        //Thread.Sleep(TimeSpan.FromMinutes(10));
     }
 }

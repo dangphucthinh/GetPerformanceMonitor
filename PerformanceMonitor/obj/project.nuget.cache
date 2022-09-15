@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bk950pI5nYCVvSPbR6zniPQ6W3RZz7ShT2PbqvAroQZcOwt4EgHCOsifzvbpD5jD6FatoeeIYNlaG5JtbOHc0Q==",
+  "dgSpecHash": "3XAy2Oy6H4e2rB/AHKkzIckYyzxW2+9e14gHJ0BlZLjoh3709MsHMjQmGpiHsBEuEV2vGYEz/6rN/2R4FaFCeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Oscar\\Desktop\\PerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
+  "projectFilePath": "C:\\Users\\Oscar\\Desktop\\myself\\GetPerformanceMonitor\\PerformanceMonitor\\PerformanceMonitor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Oscar\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Oscar\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
